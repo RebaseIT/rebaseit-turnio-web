@@ -1,5 +1,5 @@
 /*
-  # Create leads table for Turnix
+  # Create leads table for Turnio
 
   1. New Tables
     - `leads`

@@ -32,7 +32,7 @@ export function DiscountForm({ email, onDiscountRequest, onSubmitEmailWithoutDis
       randomNumbers += numbers.charAt(Math.floor(Math.random() * letters.length))
     }
     
-    return `TURNIX10-${randomLetters}${randomNumbers}`
+    return `TURNIO10-${randomLetters}${randomNumbers}`
   }
 
   const handleDiscountResponse = async (wants: boolean) => {
@@ -84,7 +84,7 @@ export function DiscountForm({ email, onDiscountRequest, onSubmitEmailWithoutDis
             <p className="text-gray-600 leading-relaxed mb-6">
               {wantsDiscount 
                 ? 'Aquí tienes tu código de descuento exclusivo:'
-                : 'Te notificaremos cuando Turnix esté disponible.'
+                : 'Te notificaremos cuando Turnio esté disponible.'
               }
             </p>
             
@@ -116,7 +116,7 @@ export function DiscountForm({ email, onDiscountRequest, onSubmitEmailWithoutDis
                     )}
                   </button>
                   <p className="text-xs text-gray-500">
-                    Guarda este código para cuando lancemos Turnix
+                    Guarda este código para cuando lancemos Turnio
                   </p>
                 </div>
               </div>
@@ -145,7 +145,7 @@ export function DiscountForm({ email, onDiscountRequest, onSubmitEmailWithoutDis
             ¡Gracias {email.split('@')[0]}!
           </h3>
           <p className="text-gray-600 text-lg leading-relaxed">
-            ¿Te gustaría recibir un código de descuento para cuando lancemos Turnix?
+            ¿Te gustaría recibir un código de descuento para cuando lancemos Turnio?
           </p>
         </div>
 

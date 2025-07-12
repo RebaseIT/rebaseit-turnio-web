@@ -82,7 +82,7 @@ function App() {
             <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
               <Calendar className="h-5 w-5 text-white" />
             </div>
-            <span className="text-xl font-bold text-gray-900">Turnix</span>
+            <span className="text-xl font-bold text-gray-900">Turnio</span>
           </div>
         </div>
       </header>
@@ -178,7 +178,7 @@ function App() {
       <footer className="px-6 py-8 border-t border-gray-100 bg-white/50 backdrop-blur-sm">
         <div className="max-w-6xl mx-auto text-center">
           <p className="text-gray-500 text-sm">
-            © 2025 Turnix. Simplificando la gestión de turnos para profesionales.
+            © 2025 Turnio. Simplificando la gestión de turnos para profesionales.
           </p>
         </div>
       </footer>
