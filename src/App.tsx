@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Calendar, Users, Sparkles, Clock } from 'lucide-react'
 import { EmailForm } from './components/EmailForm'
 import { DiscountForm } from './components/DiscountForm'
@@ -10,6 +10,20 @@ function App() {
   const [step, setStep] = useState<Step>('email')
   const [email, setEmail] = useState('')
   const [isLoading, setIsLoading] = useState(false)
+
+  useEffect(() => {
+    const scriptUrl = import.meta.env.VITE_UMAMI_SCRIPT_URL;
+    const websiteId = import.meta.env.VITE_UMAMI_WEBSITE_ID;
+
+    if (scriptUrl && websiteId && !document.querySelector(`script[data-website-id="${websiteId}"]`)) {
+      const script = document.createElement("script");
+      script.async = true;
+      script.defer = true;
+      script.dataset.websiteId = websiteId;
+      script.src = scriptUrl;
+      document.head.appendChild(script);
+    }
+  }, []);
 
   const handleEmailWithoutDiscount = async () => {
     setIsLoading(true)
