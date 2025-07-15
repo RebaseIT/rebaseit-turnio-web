@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { Gift, Check, Loader2, Copy, CheckCircle } from 'lucide-react'
 import { Snackbar } from './Snackbar'
 import submitEmailConfirmation from '../lib/web3froms'

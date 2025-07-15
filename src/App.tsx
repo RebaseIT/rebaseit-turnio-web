@@ -13,6 +13,7 @@ function App() {
 
   useEffect(() => {
     const websiteId = import.meta.env.VITE_UMAMI_WEBSITE_ID;
+    console.log('Website ID found', websiteId)
     if(!websiteId) { 
       console.warn('No website ID found')
       return 

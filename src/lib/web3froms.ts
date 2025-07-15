@@ -1,4 +1,5 @@
 export default async function submitEmailmConfirmation(email: string, code?: string) {
+    console.log('Submitting email confirmation', email, code, import.meta.env.VITE_WEB3FORMS_ACCESS_KEY)
     return await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
