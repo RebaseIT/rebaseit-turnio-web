@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Gift, Check, Loader2, Copy, CheckCircle } from 'lucide-react'
 import { Snackbar } from './Snackbar'
+import submitEmailConfirmation from '../lib/web3froms'
 
 interface DiscountFormProps {
   email: string
@@ -39,24 +40,22 @@ export function DiscountForm({ email, onDiscountRequest, onSubmitEmailWithoutDis
     setWantsDiscount(wants)
     setError(null) // Clear any previous errors
     
-    if (wants) {
-      try {
-        const generatedCode = generatePromoCode()
-        await onDiscountRequest(generatedCode)
-        setPromoCode(generatedCode)
-        setSubmitted(true)
-      } catch (error) {
-        console.error('Error requesting discount:', error)
-        setError('Error al generar el código promocional. Inténtalo de nuevo.')
+    try {
+      if (wants) {
+          const generatedCode = generatePromoCode()
+          await onDiscountRequest(generatedCode)
+          setPromoCode(generatedCode)
+          submitEmailConfirmation(email, generatedCode)
+          setSubmitted(true)
+      } else {
+          await onSubmitEmailWithoutDiscount()
+          submitEmailConfirmation(email)
+          setSubmitted(true)
       }
-    } else {
-      try {
-        await onSubmitEmailWithoutDiscount()
-        setSubmitted(true)
-      } catch (error) {
-        console.error('Error submitting email:', error)
-        setError('Error al procesar tu solicitud. Inténtalo de nuevo.')
-      }
+
+    } catch (error) {
+      console.error('Error submitting email:', error)
+      setError('Error al procesar tu solicitud. Inténtalo de nuevo.')
     }
   }
 

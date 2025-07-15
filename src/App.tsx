@@ -12,7 +12,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
-    const scriptUrl = import.meta.env.VITE_UMAMI_SCRIPT_URL;
+    const scriptUrl = 'https://cloud.umami.is/script.js';
     const websiteId = import.meta.env.VITE_UMAMI_WEBSITE_ID;
 
     if (scriptUrl && websiteId && !document.querySelector(`script[data-website-id="${websiteId}"]`)) {

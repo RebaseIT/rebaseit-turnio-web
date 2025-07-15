@@ -10,7 +10,7 @@ export default async function EmailForm(email: string, code: string) {
             subject: "¡Bienvenido a Turnio Early Access!",
             from_name: "Turnio",
             email,
-            message: `¡Gracias por registrarte para el acceso anticipado a Turnio! Te mantendremos informado. Tu código es: ${code}`,
+            message: '¡Gracias por registrarte para el acceso anticipado a Turnio! Te mantendremos informado.' + (code ? `Tu código es: ${code}` : ''),
         }),
     });
 }
