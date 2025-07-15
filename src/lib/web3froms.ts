@@ -7,7 +7,7 @@ export default async function EmailForm(email: string, code: string) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
             access_key: WEB3FORMS_ACCESS_KEY,
-            subject: "Welcome to Turnio Early Access!",
+            subject: "¡Bienvenido a Turnio Early Access!",
             from_name: "Turnio",
             email,
             message: `¡Gracias por registrarte para el acceso anticipado a Turnio! Te mantendremos informado. Tu código es: ${code}`,
