@@ -12,17 +12,13 @@ function App() {
   const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
-    const scriptUrl = 'https://cloud.umami.is/script.js';
     const websiteId = import.meta.env.VITE_UMAMI_WEBSITE_ID;
-
-    if (scriptUrl && websiteId && !document.querySelector(`script[data-website-id="${websiteId}"]`)) {
+    if(!websiteId) { return }
       const script = document.createElement("script");
-      script.async = true;
       script.defer = true;
-      script.dataset.websiteId = websiteId;
-      script.src = scriptUrl;
+      script.setAttribute('data-website-id', websiteId);
+      script.src = 'https://cloud.umami.is/script.js';
       document.head.appendChild(script);
-    }
   }, []);
 
   const handleEmailWithoutDiscount = async () => {
