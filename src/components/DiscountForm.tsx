@@ -45,11 +45,11 @@ export function DiscountForm({ email, onDiscountRequest, onSubmitEmailWithoutDis
           const generatedCode = generatePromoCode()
           await onDiscountRequest(generatedCode)
           setPromoCode(generatedCode)
-          submitEmailConfirmation(email, generatedCode)
+          await submitEmailConfirmation(email, generatedCode)
           setSubmitted(true)
       } else {
           await onSubmitEmailWithoutDiscount()
-          submitEmailConfirmation(email)
+          await submitEmailConfirmation(email)
           setSubmitted(true)
       }
 
