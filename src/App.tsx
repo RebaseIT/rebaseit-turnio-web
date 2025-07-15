@@ -13,12 +13,15 @@ function App() {
 
   useEffect(() => {
     const websiteId = import.meta.env.VITE_UMAMI_WEBSITE_ID;
-    if(!websiteId) { return }
-      const script = document.createElement("script");
-      script.defer = true;
-      script.setAttribute('data-website-id', websiteId);
-      script.src = 'https://cloud.umami.is/script.js';
-      document.head.appendChild(script);
+    if(!websiteId) { 
+      console.warn('No website ID found')
+      return 
+    }
+    const script = document.createElement("script");
+    script.defer = true;
+    script.setAttribute('data-website-id', websiteId);
+    script.src = 'https://cloud.umami.is/script.js';
+    document.head.appendChild(script);
   }, []);
 
   const handleEmailWithoutDiscount = async () => {
