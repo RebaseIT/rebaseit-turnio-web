@@ -41,12 +41,40 @@ function App() {
         } else {
           throw error
         }
-      }
+        } else {
+          // Send confirmation email via Supabase Edge Function
+          await sendEmailConfirmation(email)
+        }
     } catch (error) {
       console.error('Error saving email:', error)
       throw error
     } finally {
       setIsLoading(false)
+    }
+  }
+
+  const sendEmailConfirmation = async (email: string, promoCode?: string) => {
+    try {
+      const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
+      const functionUrl = `${supabaseUrl}/functions/v1/send-confirmation-email`
+      
+      const response = await fetch(functionUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
+        },
+        body: JSON.stringify({ email, promoCode}),
+      })
+      
+      if (response.ok) {
+        console.log('Confirmation email sent successfully')
+      } else {
+        console.error('Failed to send confirmation email:', await response.text())
+      }
+    } catch (emailError) {
+      console.error('Error sending confirmation email:', emailError)
+      // Don't throw here - we don't want to fail the whole registration if email fails
     }
   }
 
@@ -77,6 +105,9 @@ function App() {
           }
           console.error('Supabase error:', response.error)
           throw response.error
+        } else {
+          // Send confirmation email via Supabase Edge Function with promo code
+          await sendEmailConfirmation(email, promoCode)
         }
     } catch (error) {
       console.error('Error updating discount preference:', error)
