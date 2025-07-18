@@ -1,15 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { Calendar, Users, Sparkles, Clock } from 'lucide-react'
-import { EmailForm } from './components/EmailForm'
-import { DiscountForm } from './components/DiscountForm'
-import { supabase } from './lib/supabase'
-
-type Step = 'email' | 'discount'
 
 function App() {
-  const [step, setStep] = useState<Step>('email')
-  const [email, setEmail] = useState('')
-  const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
     const websiteId = import.meta.env.VITE_UMAMI_WEBSITE_ID;

@@ -1,45 +1,57 @@
 import React, { useState } from 'react'
 import { Calendar, ArrowLeft } from 'lucide-react'
-import { EmailForm } from './EmailForm'
-import { DiscountForm } from './DiscountForm'
 import { supabase } from '../lib/supabase'
 
-type Step = 'email' | 'discount'
-
 export function SignupPage() {
-  const [step, setStep] = useState<Step>('email')
-  const [email, setEmail] = useState('')
+  const [formData, setFormData] = useState({
+    email: '',
+    name: '',
+    surname: ''
+  })
   const [isLoading, setIsLoading] = useState(false)
+  const [isSubmitted, setIsSubmitted] = useState(false)
 
-  const handleEmailWithoutDiscount = async () => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }))
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
     setIsLoading(true)
+    
     try {
       const { error } = await supabase
         .from('leads')
         .insert([{ 
-          email,
+          email: formData.email,
+          name: formData.name,
+          surname: formData.surname,
           wants_discount: false
-         }])
+        }])
 
       if (error) {
-        if (error.code === '23505') { // Unique constraint violation
+        if (error.code === '23505') {
           console.log('Email already registered')
         } else {
           throw error
         }
       } else {
         // Send confirmation email via Supabase Edge Function
-        await sendEmailConfirmation(email)
+        await sendEmailConfirmation(formData.email)
+        setIsSubmitted(true)
       }
     } catch (error) {
-      console.error('Error saving email:', error)
-      throw error
+      console.error('Error saving data:', error)
     } finally {
       setIsLoading(false)
     }
   }
 
-  const sendEmailConfirmation = async (email: string, promoCode?: string) => {
+  const sendEmailConfirmation = async (email: string) => {
     try {
       const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
       const functionUrl = `${supabaseUrl}/functions/v1/send-confirmation-email`
@@ -50,7 +62,7 @@ export function SignupPage() {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
         },
-        body: JSON.stringify({ email, promoCode}),
+        body: JSON.stringify({ email }),
       })
       
       if (response.ok) {
@@ -60,44 +72,6 @@ export function SignupPage() {
       }
     } catch (emailError) {
       console.error('Error sending confirmation email:', emailError)
-    }
-  }
-
-  const handleEmailSubmit = async (emailValue: string) => {
-    setEmail(emailValue)
-    setStep('discount')
-  }
-
-  const handleDiscountRequest = async (promoCode: string) => {
-    setIsLoading(true)
-    try {
-      const response = await supabase
-        .from('leads')
-        .insert({ 
-          email,
-          wants_discount: true,
-          promo_code: promoCode,
-          updated_at: new Date().toISOString()
-        }, {
-          count: 'exact'
-        })
-        if (response.error) {
-          if (response.error.code === '23505') { // Unique constraint violation
-            console.log('Email already registered')
-          } else {
-            throw response.error
-          }
-          console.error('Supabase error:', response.error)
-          throw response.error
-        } else {
-          // Send confirmation email via Supabase Edge Function with promo code
-          await sendEmailConfirmation(email, promoCode)
-        }
-    } catch (error) {
-      console.error('Error updating discount preference:', error)
-      throw error
-    } finally {
-      setIsLoading(false)
     }
   }
 
@@ -147,26 +121,65 @@ export function SignupPage() {
           </div>
 
           {/* Form Section */}
-          {step === 'email' && (
-            <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
-              <EmailForm 
-                onEmailSubmit={handleEmailSubmit} 
-                isLoading={isLoading}
-              />
-            </div>
-          )}
+          <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                  Email *
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  required
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                  placeholder="tu@email.com"
+                />
+              </div>
 
-          {/* Discount Step */}
-          {step === 'discount' && (
-            <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
-              <DiscountForm 
-                email={email}
-                onDiscountRequest={handleDiscountRequest}
-                onSubmitEmailWithoutDiscount={handleEmailWithoutDiscount}
-                isLoading={isLoading}
-              />
-            </div>
-          )}
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                  Nombre *
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  required
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                  placeholder="Tu nombre"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="surname" className="block text-sm font-medium text-gray-700 mb-2">
+                  Apellido *
+                </label>
+                <input
+                  type="text"
+                  id="surname"
+                  name="surname"
+                  value={formData.surname}
+                  onChange={handleInputChange}
+                  required
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                  placeholder="Tu apellido"
+                />
+              </div>
+
+              <button
+                type="submit"
+                disabled={isLoading}
+                className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              >
+                {isLoading ? 'Enviando...' : 'Registrarme'}
+              </button>
+            </form>
+          </div>
         </div>
       </main>
 
