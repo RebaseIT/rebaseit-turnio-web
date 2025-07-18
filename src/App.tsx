@@ -27,24 +27,25 @@ function App() {
   const handleEmailWithoutDiscount = async () => {
     setIsLoading(true)
     try {
-      const { error } = await supabase
-        .from('leads')
-        .insert([{ 
-          email,
-          wants_discount: false
-         }])
+      // const { error } = await supabase
+      //   .from('leads')
+      //   .insert([{ 
+      //     email,
+      //     wants_discount: false
+      //    }])
 
-      if (error) {
-        if (error.code === '23505') { // Unique constraint violation
-          // Email already exists, still proceed to discount step
-          console.log('Email already registered')
-        } else {
-          throw error
-        }
-        } else {
-          // Send confirmation email via Supabase Edge Function
-          await sendEmailConfirmation(email)
-        }
+      // if (error) {
+      //   if (error.code === '23505') { // Unique constraint violation
+      //     // Email already exists, still proceed to discount step
+      //     console.log('Email already registered')
+      //   } else {
+      //     throw error
+      //   }
+      //   } else {
+      //     // Send confirmation email via Supabase Edge Function
+      //     await sendEmailConfirmation(email)
+      //   }
+        await sendEmailConfirmation(email)
     } catch (error) {
       console.error('Error saving email:', error)
       throw error
@@ -86,29 +87,30 @@ function App() {
   const handleDiscountRequest = async (promoCode: string) => {
     setIsLoading(true)
     try {
-      const response = await supabase
-        .from('leads')
-        .insert({ 
-          email,
-          wants_discount: true,
-          promo_code: promoCode,
-          updated_at: new Date().toISOString()
-        }, {
-          count: 'exact'
-        })
-        if (response.error) {
-          if (response.error.code === '23505') { // Unique constraint violation
-            // Email already exists, still proceed to discount step
-            console.log('Email already registered')
-          } else {
-            throw response.error
-          }
-          console.error('Supabase error:', response.error)
-          throw response.error
-        } else {
-          // Send confirmation email via Supabase Edge Function with promo code
-          await sendEmailConfirmation(email, promoCode)
-        }
+      // const response = await supabase
+      //   .from('leads')
+      //   .insert({ 
+      //     email,
+      //     wants_discount: true,
+      //     promo_code: promoCode,
+      //     updated_at: new Date().toISOString()
+      //   }, {
+      //     count: 'exact'
+      //   })
+      //   if (response.error) {
+      //     if (response.error.code === '23505') { // Unique constraint violation
+      //       // Email already exists, still proceed to discount step
+      //       console.log('Email already registered')
+      //     } else {
+      //       throw response.error
+      //     }
+      //     console.error('Supabase error:', response.error)
+      //     throw response.error
+      //   } else {
+      //     // Send confirmation email via Supabase Edge Function with promo code
+      //     await sendEmailConfirmation(email, promoCode)
+      //   }
+        await sendEmailConfirmation(email, promoCode)
     } catch (error) {
       console.error('Error updating discount preference:', error)
       throw error
