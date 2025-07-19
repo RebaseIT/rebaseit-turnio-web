@@ -1,7 +1,11 @@
 import { useEffect } from 'react'
 import { Calendar, Users, Sparkles, Clock } from 'lucide-react'
+import { SignupPage } from './components/SignupPage';
+import { useIsMobile } from './hooks/useIsMobile';
 
 function App() {
+
+  const isMobile = useIsMobile(768)
 
   useEffect(() => {
     const websiteId = import.meta.env.VITE_UMAMI_WEBSITE_ID;
@@ -71,27 +75,21 @@ function App() {
             >
               Planes
             </a>
-            <a 
-              href="#footer" 
-              className="text-gray-600 hover:text-gray-900 transition-colors cursor-pointer"
-              onClick={(e) => {
-                e.preventDefault();
-                document.getElementById('footer')?.scrollIntoView({ 
-                  behavior: 'smooth',
-                  block: 'start'
-                });
-              }}
-            >
-              Contacto
-            </a>
           </nav>
           
-          <a 
-            href="/signup" 
+          { !isMobile && <a 
+            href="#signup" 
             className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+            onClick={(e) => {
+              e.preventDefault();
+              document.getElementById('signup')?.scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+              });
+            }}
           >
             Quiero acceso anticipado
-          </a>
+          </a>}
         </div>
       </header>
 
@@ -108,7 +106,7 @@ function App() {
                 </div>
                 
                 <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight">
-                  Gestiona turnos
+                  Gestioná turnos
                   <br />
                   <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                     sin complicaciones
@@ -123,57 +121,25 @@ function App() {
 
               <div className="text-center">
                 <a 
-                  href="/signup" 
+                  href="#signup" 
                   className="inline-flex items-center gap-2 bg-blue-600 text-white px-8 py-4 rounded-lg hover:bg-blue-700 transition-colors text-lg font-semibold"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById('signup')?.scrollIntoView({ 
+                      behavior: 'smooth',
+                      block: 'start'
+                    });
+                  }}
                 >
                   Quiero acceso anticipado
                 </a>
                 <p className="text-gray-500 text-sm mt-4">
-                  Únete a la lista de espera y sé el primero en saber cuando esté disponible
+                  Únete a la lista de espera para saber cuando esté disponible y obtené un descuento!
                 </p>
               </div>
 
-              {/* Features Preview */}
-              <div className="grid md:grid-cols-3 gap-8 mt-20 pt-20 border-t border-gray-100">
-                <div className="text-center space-y-4">
-                  <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mx-auto">
-                    <Calendar className="h-6 w-6 text-blue-600" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-gray-900">
-                    Calendario intuitivo
-                  </h3>
-                  <p className="text-gray-600">
-                    Visualiza y gestiona todos tus turnos desde una interfaz limpia y moderna.
-                  </p>
-                </div>
-
-                <div className="text-center space-y-4">
-                  <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mx-auto">
-                    <Users className="h-6 w-6 text-green-600" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-gray-900">
-                    Clientes felices
-                  </h3>
-                  <p className="text-gray-600">
-                    Tus clientes pueden reservar turnos 24/7 sin necesidad de llamadas.
-                  </p>
-                </div>
-
-                <div className="text-center space-y-4">
-                  <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mx-auto">
-                    <Clock className="h-6 w-6 text-purple-600" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-gray-900">
-                    Ahorra tiempo
-                  </h3>
-                  <p className="text-gray-600">
-                    Automatiza recordatorios y confirmaciones para reducir ausencias.
-                  </p>
-                </div>
-              </div>
-
               {/* Cómo funciona Section */}
-              <section id="como-funciona" className="mt-32 pt-20">
+              <section id="como-funciona" className="mt-8 pt-8">
                 <div className="text-center mb-16">
                   <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
                     Cómo funciona
@@ -186,7 +152,7 @@ function App() {
                       <span className="text-blue-600 font-bold text-lg">1</span>
                     </div>
                     <h3 className="text-lg font-semibold text-gray-900 mb-4 text-center">
-                      Creás una cuenta en Turnio
+                      Creá una cuenta en Turnio
                     </h3>
                     <p className="text-gray-600 text-center">
                       Nos compartís tu email y el nombre de tu local
@@ -198,7 +164,7 @@ function App() {
                       <span className="text-blue-600 font-bold text-lg">2</span>
                     </div>
                     <h3 className="text-lg font-semibold text-gray-900 mb-4 text-center">
-                      Configurás tu disponibilidad
+                      Configurá tu disponibilidad
                     </h3>
                     <p className="text-gray-600 text-center">
                       Nos comentás en qué días y horarios trabajás durante la semana
@@ -210,7 +176,7 @@ function App() {
                       <span className="text-blue-600 font-bold text-lg">3</span>
                     </div>
                     <h3 className="text-lg font-semibold text-gray-900 mb-4 text-center">
-                      Cargás tus servicios
+                      Cargá tus servicios
                     </h3>
                     <p className="text-gray-600 text-center">
                       Nos especificás el nombre y la duración del servicio junto con otros campos extra
@@ -225,7 +191,7 @@ function App() {
                       Generamos tu link de reserva
                     </h3>
                     <p className="text-gray-600 text-center">
-                      Compartís dicho link en tus redes sociales y listo! Tus clientes ya pueden reservar sus turnos!
+                      Compartí dicho link en tus redes sociales y listo! Tus clientes ya pueden reservar sus turnos!
                     </p>
                   </div>
                 </div>
@@ -286,38 +252,24 @@ function App() {
                       </svg>
                     </div>
                     <h3 className="text-xl font-semibold text-gray-900 mb-4">
-                      Observaciones por cliente
+                      Historial por cliente
                     </h3>
                     <p className="text-gray-600">
-                      Historial clínico con notas fechadas para cada cliente por prestador.
-                    </p>
-                  </div>
-
-                  <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 text-center">
-                    <div className="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                      <svg className="h-8 w-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                      </svg>
-                    </div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-4">
-                      Múltiples turnos
-                    </h3>
-                    <p className="text-gray-600">
-                      Agendá varios turnos a la vez, contiguos o no, ideal para familias.
+                      Historial por cliente con notas fechadas.
                     </p>
                   </div>
 
                   <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 text-center">
                     <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
                       <svg className="h-8 w-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                       </svg>
                     </div>
                     <h3 className="text-xl font-semibold text-gray-900 mb-4">
-                      Cancelación masiva
+                      Gestión masiva
                     </h3>
                     <p className="text-gray-600">
-                      Cancelá múltiples reservas de una vez para mayor eficiencia.
+                      Gestioná o múltiples reservas de una vez para todos tus clientes.
                     </p>
                   </div>
 
@@ -332,34 +284,6 @@ function App() {
                     </h3>
                     <p className="text-gray-600">
                       Reportes detallados de clientes, prestadores y especialistas.
-                    </p>
-                  </div>
-
-                  <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 text-center">
-                    <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                      <svg className="h-8 w-8 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
-                      </svg>
-                    </div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-4">
-                      Pago con Mercado Pago
-                    </h3>
-                    <p className="text-gray-600">
-                      Cobrá reservas y servicios de forma segura y rápida.
-                    </p>
-                  </div>
-
-                  <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 text-center">
-                    <div className="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                      <svg className="h-8 w-8 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                      </svg>
-                    </div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-4">
-                      Archivos .ics
-                    </h3>
-                    <p className="text-gray-600">
-                      Los clientes pueden agregar sus reservas a su calendario personal.
                     </p>
                   </div>
                 </div>
@@ -453,6 +377,11 @@ function App() {
                     </div>
                   </div>
                 </div>
+              </section>
+
+              {/* Signup Section */}
+              <section id="signup" className="mt-32 pt-20">
+                <SignupPage />
               </section>
             </div>
         </div>

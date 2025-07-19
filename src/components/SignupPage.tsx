@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { Calendar, ArrowLeft } from 'lucide-react'
 
 export function SignupPage() {
   const [formData, setFormData] = useState({
@@ -134,227 +133,114 @@ export function SignupPage() {
 
   if (isSubmitted) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50">
-        {/* Header */}
-        <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-sm border-b border-gray-100 px-6 py-4">
-          <div className="max-w-6xl mx-auto flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-                <Calendar className="h-5 w-5 text-white" />
-              </div>
-              <span className="text-xl font-bold text-gray-900">Turnio</span>
-            </div>
-            
-            <a 
-              href="/" 
-              className="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors"
-            >
-              <ArrowLeft className="h-4 w-4" />
-              Volver al inicio
-            </a>
-          </div>
-        </header>
-
+      <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50 px-4 sm:px-6 lg:px-8">
         {/* Success Message */}
-        <main className="px-6 pb-16 pt-16">
           <div className="max-w-2xl mx-auto text-center">
-            <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="bg-white rounded-xl sm:rounded-2xl shadow-sm border border-gray-100 p-6 sm:p-8">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
+                <svg className="w-6 h-6 sm:w-8 sm:h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
               </div>
               
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">
+              <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">
                 ¡Gracias por registrarte!
               </h2>
               
-              <p className="text-gray-600 mb-6">
+              <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">
                 Te hemos enviado un email de confirmación. Te notificaremos cuando Turnio esté disponible.
               </p>
               
               <a 
                 href="/" 
-                className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
+                className="inline-flex items-center gap-2 bg-blue-600 text-white px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg text-sm sm:text-base hover:bg-blue-700 transition-colors"
               >
                 Volver al inicio
               </a>
             </div>
           </div>
-        </main>
       </div>
     )
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50">
-      {/* Header */}
-      <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-sm border-b border-gray-100 px-6 py-4">
-        <div className="max-w-6xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-              <Calendar className="h-5 w-5 text-white" />
-            </div>
-            <span className="text-xl font-bold text-gray-900">Turnio</span>
-          </div>
+    <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <a 
-            href="/" 
-            className="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors"
-          >
-            <ArrowLeft className="h-4 w-4" />
-            Volver al inicio
-          </a>
-        </div>
-      </header>
-
-      {/* Main Content */}
-      <main className="px-6 pb-16 pt-16">
-        <div className="max-w-2xl mx-auto">
-          
-          {/* Hero Section */}
-          <div className="text-center space-y-8 mb-12">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">
-              Acceso Anticipado
-            </div>
-            
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
-              Únete a Turnio
-              <br />
-              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                antes que nadie
-              </span>
-            </h1>
-            
-            <p className="text-xl text-gray-600 max-w-xl mx-auto leading-relaxed">
-              Sé de los primeros en descubrir cómo Turnio puede transformar la manera en que gestionas tu negocio.
-            </p>
-          </div>
-
-          {/* Form Section */}
-          <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                  Email *
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
-                  placeholder="tu@email.com"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                  Nombre *
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleInputChange}
-                  required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
-                  placeholder="Tu nombre"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="surname" className="block text-sm font-medium text-gray-700 mb-2">
-                  Apellido *
-                </label>
-                <input
-                  type="text"
-                  id="surname"
-                  name="surname"
-                  value={formData.surname}
-                  onChange={handleInputChange}
-                  required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
-                  placeholder="Tu apellido"
-                />
-              </div>
-
-              <button
-                type="submit"
-                disabled={isLoading}
-                className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-              >
-                {isLoading ? 'Enviando...' : 'Registrarme'}
-              </button>
-            </form>
-          </div>
-        </div>
-      </main>
-
-      {/* Footer */}
-      <footer className="bg-gray-900 text-gray-300 px-6 py-16">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-8 mb-8">
-            {/* Column 1: Turnio */}
-            <div className="space-y-4">
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center">
-                  <Calendar className="h-5 w-5 text-white" />
-                </div>
-                <span className="text-xl font-bold text-white">Turnio</span>
-              </div>
-              <p className="text-gray-400 text-sm">
-                Gestiona tus turnos sin complicaciones
-              </p>
-            </div>
-
-            {/* Column 2: Navegación */}
-            <div className="space-y-4">
-              <h3 className="text-white font-semibold">Navegación</h3>
-              <ul className="space-y-2">
-                <li>
-                  <a href="/#como-funciona" className="text-gray-400 hover:text-white transition-colors">
-                    Cómo funciona
-                  </a>
-                </li>
-                <li>
-                  <a href="/#que-ofrecemos" className="text-gray-400 hover:text-white transition-colors">
-                    Qué ofrecemos
-                  </a>
-                </li>
-                <li>
-                  <a href="/#planes" className="text-gray-400 hover:text-white transition-colors">
-                    Planes
-                  </a>
-                </li>
-                <li>
-                  <a href="/#footer" className="text-gray-400 hover:text-white transition-colors">
-                    Contacto
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            {/* Column 3: Contactanos */}
-            <div className="space-y-4">
-              <h3 className="text-white font-semibold">Contactanos</h3>
-              <p className="text-gray-400 text-sm">
-                sales@rebaseit.tech
-              </p>
-            </div>
-          </div>
-
-          {/* Bottom Section */}
-          <div className="border-t border-gray-700 pt-8">
-            <p className="text-center text-gray-400 text-sm">
-              © 2025 Rebase IT. All rights reserved.
-            </p>
-          </div>
-        </div>
-      </footer>
+    {/* Hero Section */}
+    <div className="text-center space-y-6 sm:space-y-8 mb-8 sm:mb-12">
+      
+      <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
+        Únete a Turnio
+        <br />
+        <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          antes que nadie
+        </span>
+      </h1>
+      
+      <p className="text-lg sm:text-xl text-gray-600 max-w-xl mx-auto leading-relaxed px-4">
+        Sé de los primeros en descubrir cómo Turnio puede transformar la manera en que gestionas tu negocio.
+      </p>
     </div>
+
+    {/* Form Section */}
+    <div className="bg-white rounded-xl sm:rounded-2xl shadow-sm border border-gray-100 p-6 sm:p-8">
+      <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+        <div>
+          <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2 text-left">
+            Email *
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value={formData.email}
+            onChange={handleInputChange}
+            required
+            className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+            placeholder="tu@email.com"
+          />
+        </div>
+
+        <div>
+          <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2 text-left">
+            Nombre *
+          </label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            value={formData.name}
+            onChange={handleInputChange}
+            required
+            className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+            placeholder="Tu nombre"
+          />
+        </div>
+
+        <div>
+          <label htmlFor="surname" className="block text-sm font-medium text-gray-700 mb-2 text-left">
+            Profesión
+          </label>
+          <input
+            type="text"
+            id="surname"
+            name="surname"
+            value={formData.surname}
+            onChange={handleInputChange}
+            className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+            placeholder="Tu profesión"
+          />
+        </div>
+
+        <button
+          type="submit"
+          disabled={isLoading}
+          className="w-full bg-blue-600 text-white py-2.5 sm:py-3 px-4 sm:px-6 rounded-lg font-semibold text-sm sm:text-base hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+        >
+          {isLoading ? 'Enviando...' : 'Registrarme'}
+        </button>
+      </form>
+    </div>
+  </div>
   )
 } 
