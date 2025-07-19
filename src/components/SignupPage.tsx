@@ -134,33 +134,30 @@ export function SignupPage() {
 
   if (isSubmitted) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50 px-4 sm:px-6 lg:px-8">
-        {/* Success Message */}
-          <div className="max-w-2xl mx-auto text-center">
-            <div className="bg-white rounded-xl sm:rounded-2xl shadow-sm border border-gray-100 p-6 sm:p-8">
-              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
-                <svg className="w-6 h-6 sm:w-8 sm:h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                </svg>
-              </div>
-              
-              <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">
-                ¡Gracias por registrarte!
-              </h2>
-              
-              <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">
-                Te hemos enviado un email de confirmación. Te notificaremos cuando Turnio esté disponible.
-              </p>
-              
-              <a 
-                href="/" 
-                className="inline-flex items-center gap-2 bg-blue-600 text-white px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg text-sm sm:text-base hover:bg-blue-700 transition-colors"
-              >
-                Volver al inicio
-              </a>
+        <div className="max-w-2xl mx-auto text-center">
+          <div className="bg-white rounded-xl sm:rounded-2xl shadow-sm border border-gray-100 p-6 sm:p-8">
+            <div className="w-12 h-12 sm:w-16 sm:h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
+              <svg className="w-6 h-6 sm:w-8 sm:h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              </svg>
             </div>
+            
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">
+              ¡Gracias por registrarte!
+            </h2>
+            
+            <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">
+              Te hemos enviado un email de confirmación. Te notificaremos cuando Turnio esté disponible.
+            </p>
+            
+            <a 
+              href="/" 
+              className="inline-flex items-center gap-2 bg-blue-600 text-white px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg text-sm sm:text-base hover:bg-blue-700 transition-colors"
+            >
+              Volver al inicio
+            </a>
           </div>
-      </div>
+        </div>
     )
   }
 
