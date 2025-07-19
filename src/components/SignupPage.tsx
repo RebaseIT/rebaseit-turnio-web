@@ -4,7 +4,7 @@ export function SignupPage() {
   const [formData, setFormData] = useState({
     email: '',
     name: '',
-    surname: ''
+    profession: ''
   })
   const [isLoading, setIsLoading] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
@@ -51,14 +51,15 @@ export function SignupPage() {
         },
         body: JSON.stringify({
           access_key: web3formsKey,
-          from_name: `${formData.name} ${formData.surname}`,
+          from_name: `${formData.name}`,
           from_email: formData.email,
           subject: 'Nuevo registro en Turnio - Acceso Anticipado',
           message: `
             Nuevo usuario registrado para acceso anticipado:
             
-            Nombre: ${formData.name} ${formData.surname}
+            Nombre: ${formData.name}
             Email: ${formData.email}
+            Profesión: ${formData.profession}
             
             Fecha de registro: ${new Date().toLocaleString('es-ES')}
           `,
@@ -218,14 +219,14 @@ export function SignupPage() {
         </div>
 
         <div>
-          <label htmlFor="surname" className="block text-sm font-medium text-gray-700 mb-2 text-left">
+          <label htmlFor="profession" className="block text-sm font-medium text-gray-700 mb-2 text-left">
             Profesión
           </label>
           <input
             type="text"
-            id="surname"
-            name="surname"
-            value={formData.surname}
+            id="profession"
+            name="profession"
+            value={formData.profession}
             onChange={handleInputChange}
             className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
             placeholder="Tu profesión"

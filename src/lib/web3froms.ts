@@ -1,4 +1,4 @@
-export default async function submitEmailmConfirmation(email: string, code?: string) {
+export default async function submitEmailConfirmation(email: string, code?: string, name?: string, profession?: string) {
     return await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -7,6 +7,8 @@ export default async function submitEmailmConfirmation(email: string, code?: str
             subject: "¡Bienvenido a Turnio Early Access!",
             from_name: "Turnio",
             email,
+            name,
+            profession,
             message: '¡Gracias por registrarte para el acceso anticipado a Turnio! Te mantendremos informado.' + (code ? `Tu código es: ${code}` : ''),
             redirect: 'false'
         }),

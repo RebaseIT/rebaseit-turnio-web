@@ -300,81 +300,160 @@ function App() {
                   </p>
                 </div>
                 
-                <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                  <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 relative">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                  <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 relative flex flex-col">
                     <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
                       <Users className="h-8 w-8 text-blue-600" />
                     </div>
                     <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
                       Básico
                     </h3>
-                    <ul className="space-y-4 mb-8">
+                    <ul className="space-y-4 mb-8 flex-grow">
                       <li className="flex items-center gap-3">
                         <div className="w-5 h-5 bg-blue-600 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs">✓</span>
                         </div>
-                        <span className="text-gray-700">Hasta 50 turnos por mes</span>
+                        <span className="text-gray-700 text-left">Turnos ilimitados</span>
                       </li>
                       <li className="flex items-center gap-3">
                         <div className="w-5 h-5 bg-blue-600 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs">✓</span>
                         </div>
-                        <span className="text-gray-700">Notificaciones por email</span>
+                        <span className="text-gray-700 text-left">Notificaciones por email</span>
                       </li>
                       <li className="flex items-center gap-3">
                         <div className="w-5 h-5 bg-blue-600 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs">✓</span>
                         </div>
-                        <span className="text-gray-700">Calendario básico</span>
+                        <span className="text-gray-700 text-left">Un calendario básico</span>
                       </li>
                       <li className="flex items-center gap-3">
                         <div className="w-5 h-5 bg-blue-600 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs">✓</span>
                         </div>
-                        <span className="text-gray-700">Soporte por email</span>
+                        <span className="text-gray-700 text-left">Soporte por email</span>
                       </li>
                     </ul>
-                    <div className="text-center">
-                      <p className="text-blue-600 font-semibold">Sólo por $30.000</p>
-                    </div>
+                                          <div className="text-center mt-auto">
+                        <button 
+                          className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors cursor-pointer"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            document.getElementById('signup')?.scrollIntoView({ 
+                              behavior: 'smooth',
+                              block: 'start'
+                            });
+                          }}
+                        >
+                          Sólo por $30.000
+                        </button>
+                      </div>
                   </div>
 
-                  <div className="bg-white rounded-xl p-8 shadow-sm border border-purple-200 relative">
+                  <div className="bg-white rounded-xl p-8 shadow-sm border border-purple-200 relative flex flex-col">
                     <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6">
                       <Users className="h-8 w-8 text-purple-600" />
                     </div>
                     <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
                       Premium
                     </h3>
-                    <ul className="space-y-4 mb-8">
+                    <ul className="space-y-4 mb-8 flex-grow">
                       <li className="flex items-center gap-3">
                         <div className="w-5 h-5 bg-purple-600 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs">✓</span>
                         </div>
-                        <span className="text-gray-700">Turnos ilimitados</span>
+                        <span className="text-gray-700 text-left">Todo lo de Básico</span>
                       </li>
                       <li className="flex items-center gap-3">
                         <div className="w-5 h-5 bg-purple-600 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs">✓</span>
                         </div>
-                        <span className="text-gray-700">Notificaciones SMS y email</span>
+                        <span className="text-gray-700 text-left">Gestión avanzada de disponibilidad</span>
                       </li>
                       <li className="flex items-center gap-3">
                         <div className="w-5 h-5 bg-purple-600 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs">✓</span>
                         </div>
-                        <span className="text-gray-700">Calendario avanzado</span>
+                        <span className="text-gray-700 text-left">Gestión avanzada de turnos</span>
                       </li>
                       <li className="flex items-center gap-3">
                         <div className="w-5 h-5 bg-purple-600 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs">✓</span>
                         </div>
-                        <span className="text-gray-700">Soporte prioritario</span>
+                        <span className="text-gray-700 text-left">Hasta 10 calendarios</span>
+                      </li>
+                      <li className="flex items-center gap-3">
+                        <div className="w-5 h-5 bg-purple-600 rounded-full flex items-center justify-center">
+                          <span className="text-white text-xs">✓</span>
+                        </div>
+                        <span className="text-gray-700 text-left">Soporte en línea de 8:00 a 20:00</span>
                       </li>
                     </ul>
-                    <div className="text-center">
-                      <p className="text-purple-600 font-semibold">Sólo por $60.000</p>
+                                          <div className="text-center mt-auto">
+                        <button 
+                          className="w-full bg-purple-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-purple-700 transition-colors cursor-pointer"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            document.getElementById('signup')?.scrollIntoView({ 
+                              behavior: 'smooth',
+                              block: 'start'
+                            });
+                          }}
+                        >
+                          Sólo por $60.000
+                        </button>
+                      </div>
+                  </div>
+
+                  <div className="bg-white rounded-xl p-8 shadow-sm border border-orange-200 relative flex flex-col">
+                    <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                      <svg className="h-8 w-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                      </svg>
                     </div>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
+                      Enterprise
+                    </h3>
+                    <ul className="space-y-4 mb-8 flex-grow">
+                      <li className="flex items-center gap-3">
+                        <div className="w-5 h-5 bg-orange-600 rounded-full flex items-center justify-center">
+                          <span className="text-white text-xs">✓</span>
+                        </div>
+                        <span className="text-gray-700 text-left">Todo lo de Premium</span>
+                      </li>
+                      <li className="flex items-center gap-3">
+                        <div className="w-5 h-5 bg-orange-600 rounded-full flex items-center justify-center">
+                          <span className="text-white text-xs">✓</span>
+                        </div>
+                        <span className="text-gray-700 text-left">API personalizada</span>
+                      </li>
+                      <li className="flex items-center gap-3">
+                        <div className="w-5 h-5 bg-orange-600 rounded-full flex items-center justify-center">
+                          <span className="text-white text-xs">✓</span>
+                        </div>
+                        <span className="text-gray-700 text-left">Soporte 24/7 dedicado</span>
+                      </li>
+                      <li className="flex items-center gap-3">
+                        <div className="w-5 h-5 bg-orange-600 rounded-full flex items-center justify-center">
+                          <span className="text-white text-xs">✓</span>
+                        </div>
+                        <span className="text-gray-700 text-left">Integración con sistemas</span>
+                      </li>
+                    </ul>
+                      <div className="text-center mt-auto">
+                        <button 
+                          className="w-full bg-orange-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-orange-700 transition-colors cursor-pointer"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            document.getElementById('signup')?.scrollIntoView({ 
+                              behavior: 'smooth',
+                              block: 'start'
+                            });
+                          }}
+                        >
+                          Contactanos
+                        </button>
+                      </div>
                   </div>
                 </div>
               </section>
