@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Calendar, ArrowLeft } from 'lucide-react'
-import { supabase } from '../lib/supabase'
 
 export function SignupPage() {
   const [formData, setFormData] = useState({
@@ -24,55 +23,167 @@ export function SignupPage() {
     setIsLoading(true)
     
     try {
-      const { error } = await supabase
-        .from('leads')
-        .insert([{ 
-          email: formData.email,
-          name: formData.name,
-          surname: formData.surname,
-          wants_discount: false
-        }])
-
-      if (error) {
-        if (error.code === '23505') {
-          console.log('Email already registered')
-        } else {
-          throw error
-        }
-      } else {
-        // Send confirmation email via Supabase Edge Function
-        await sendEmailConfirmation(formData.email)
-        setIsSubmitted(true)
-      }
+      // Send email via Web3Forms
+      await sendWeb3FormsEmail()
+      
+      // Send email via Resend
+      await sendResendEmail()
+      
+      setIsSubmitted(true)
     } catch (error) {
-      console.error('Error saving data:', error)
+      console.error('Error sending emails:', error)
     } finally {
       setIsLoading(false)
     }
   }
 
-  const sendEmailConfirmation = async (email: string) => {
+  const sendWeb3FormsEmail = async () => {
     try {
-      const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
-      const functionUrl = `${supabaseUrl}/functions/v1/send-confirmation-email`
-      
-      const response = await fetch(functionUrl, {
+      const web3formsKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY
+      if (!web3formsKey) {
+        console.warn('Web3Forms access key not found')
+        return
+      }
+
+      const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
         },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({
+          access_key: web3formsKey,
+          from_name: `${formData.name} ${formData.surname}`,
+          from_email: formData.email,
+          subject: 'Nuevo registro en Turnio - Acceso Anticipado',
+          message: `
+            Nuevo usuario registrado para acceso anticipado:
+            
+            Nombre: ${formData.name} ${formData.surname}
+            Email: ${formData.email}
+            
+            Fecha de registro: ${new Date().toLocaleString('es-ES')}
+          `,
+        }),
       })
-      
+
       if (response.ok) {
-        console.log('Confirmation email sent successfully')
+        console.log('Web3Forms email sent successfully')
       } else {
-        console.error('Failed to send confirmation email:', await response.text())
+        console.error('Failed to send Web3Forms email:', await response.text())
       }
-    } catch (emailError) {
-      console.error('Error sending confirmation email:', emailError)
+    } catch (error) {
+      console.error('Error sending Web3Forms email:', error)
     }
+  }
+
+  const sendResendEmail = async () => {
+    try {
+      const resendApiKey = import.meta.env.VITE_RESEND_API_KEY
+      if (!resendApiKey) {
+        console.warn('Resend API key not found')
+        return
+      }
+
+      const response = await fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${resendApiKey}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          from: 'Turnio <noreply@rebaseit.tech>',
+          to: [formData.email],
+          subject: '¡Bienvenido a Turnio! - Acceso Anticipado',
+          html: `
+            <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+              <h2 style="color: #2563eb;">¡Gracias por registrarte en Turnio!</h2>
+              
+              <p>Hola ${formData.name},</p>
+              
+              <p>Nos complace confirmar que has sido registrado exitosamente para el acceso anticipado de Turnio.</p>
+              
+              <p>Te notificaremos tan pronto como la plataforma esté disponible para que puedas ser uno de los primeros en experimentar cómo Turnio puede transformar la gestión de tu negocio.</p>
+              
+              <h3 style="color: #374151;">¿Qué puedes esperar?</h3>
+              <ul>
+                <li>Notificación prioritaria cuando esté disponible</li>
+                <li>Acceso exclusivo a funciones beta</li>
+                <li>Soporte prioritario durante el lanzamiento</li>
+              </ul>
+              
+              <p style="margin-top: 30px;">Saludos,<br>El equipo de Turnio</p>
+              
+              <hr style="margin: 30px 0; border: none; border-top: 1px solid #e5e7eb;">
+              <p style="font-size: 12px; color: #6b7280;">
+                Este email fue enviado a ${formData.email}. Si no solicitaste este registro, puedes ignorar este mensaje.
+              </p>
+            </div>
+          `,
+        }),
+      })
+
+      if (response.ok) {
+        console.log('Resend email sent successfully')
+      } else {
+        console.error('Failed to send Resend email:', await response.text())
+      }
+    } catch (error) {
+      console.error('Error sending Resend email:', error)
+    }
+  }
+
+  if (isSubmitted) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50">
+        {/* Header */}
+        <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-sm border-b border-gray-100 px-6 py-4">
+          <div className="max-w-6xl mx-auto flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+                <Calendar className="h-5 w-5 text-white" />
+              </div>
+              <span className="text-xl font-bold text-gray-900">Turnio</span>
+            </div>
+            
+            <a 
+              href="/" 
+              className="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors"
+            >
+              <ArrowLeft className="h-4 w-4" />
+              Volver al inicio
+            </a>
+          </div>
+        </header>
+
+        {/* Success Message */}
+        <main className="px-6 pb-16 pt-16">
+          <div className="max-w-2xl mx-auto text-center">
+            <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                ¡Gracias por registrarte!
+              </h2>
+              
+              <p className="text-gray-600 mb-6">
+                Te hemos enviado un email de confirmación. Te notificaremos cuando Turnio esté disponible.
+              </p>
+              
+              <a 
+                href="/" 
+                className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
+              >
+                Volver al inicio
+              </a>
+            </div>
+          </div>
+        </main>
+      </div>
+    )
   }
 
   return (

@@ -242,7 +242,7 @@ function App() {
                   </p>
                 </div>
                 
-                <div className="grid md:grid-cols-3 gap-8">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                   <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 text-center">
                     <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
                       <Calendar className="h-8 w-8 text-blue-600" />
@@ -276,6 +276,90 @@ function App() {
                     </h3>
                     <p className="text-gray-600">
                       Automatizá recordatorios y confirmaciones para reducir ausencias.
+                    </p>
+                  </div>
+
+                  <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 text-center">
+                    <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                      <svg className="h-8 w-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                      </svg>
+                    </div>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                      Observaciones por cliente
+                    </h3>
+                    <p className="text-gray-600">
+                      Historial clínico con notas fechadas para cada cliente por prestador.
+                    </p>
+                  </div>
+
+                  <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 text-center">
+                    <div className="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                      <svg className="h-8 w-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                      </svg>
+                    </div>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                      Múltiples turnos
+                    </h3>
+                    <p className="text-gray-600">
+                      Agendá varios turnos a la vez, contiguos o no, ideal para familias.
+                    </p>
+                  </div>
+
+                  <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 text-center">
+                    <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                      <svg className="h-8 w-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                      </svg>
+                    </div>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                      Cancelación masiva
+                    </h3>
+                    <p className="text-gray-600">
+                      Cancelá múltiples reservas de una vez para mayor eficiencia.
+                    </p>
+                  </div>
+
+                  <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 text-center">
+                    <div className="w-16 h-16 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                      <svg className="h-8 w-8 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                      </svg>
+                    </div>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                      Estadísticas completas
+                    </h3>
+                    <p className="text-gray-600">
+                      Reportes detallados de clientes, prestadores y especialistas.
+                    </p>
+                  </div>
+
+                  <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 text-center">
+                    <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                      <svg className="h-8 w-8 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                      </svg>
+                    </div>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                      Pago con Mercado Pago
+                    </h3>
+                    <p className="text-gray-600">
+                      Cobrá reservas y servicios de forma segura y rápida.
+                    </p>
+                  </div>
+
+                  <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 text-center">
+                    <div className="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                      <svg className="h-8 w-8 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                      </svg>
+                    </div>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                      Archivos .ics
+                    </h3>
+                    <p className="text-gray-600">
+                      Los clientes pueden agregar sus reservas a su calendario personal.
                     </p>
                   </div>
                 </div>
