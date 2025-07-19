@@ -7,8 +7,8 @@ export interface EmailData {
 
 export const getEmailSubject = (hasPromoCode: boolean): string => {
   return hasPromoCode 
-    ? '¡Bienvenido a Turnio Early Access! - Tu código especial'
-    : '¡Bienvenido a Turnio Early Access!'
+    ? '¡Bienvenido a Turnio! - Tu código de descuento'
+    : '¡Bienvenido a Turnio!'
 }
 
 export const getEmailContent = (data: EmailData): string => {
