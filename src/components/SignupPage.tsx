@@ -20,13 +20,14 @@ export function SignupPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsLoading(true)
+    const promoCode = generatePromoCode()
     
     try {
       // Send email via Web3Forms
-      await sendWeb3FormsEmail()
+      await sendWeb3FormsEmail(promoCode)
       
       // Send email via Resend
-      await sendResendEmail()
+      await sendResendEmail(promoCode)
       
       setIsSubmitted(true)
     } catch (error) {
@@ -36,7 +37,7 @@ export function SignupPage() {
     }
   }
 
-  const sendWeb3FormsEmail = async () => {
+  const sendWeb3FormsEmail = async (promoCode: string) => {
     try {
       const web3formsKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY
       if (!web3formsKey) {
@@ -60,7 +61,8 @@ export function SignupPage() {
             Nombre: ${formData.name}
             Email: ${formData.email}
             Profesión: ${formData.profession}
-            
+            Código de descuento: ${promoCode}
+
             Fecha de registro: ${new Date().toLocaleString('es-ES')}
           `,
         }),
@@ -76,14 +78,32 @@ export function SignupPage() {
     }
   }
 
-  const sendResendEmail = async () => {
+  const generatePromoCode = () => {
+    const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    const numbers = '0123456789'
+    
+    // Generate 4 random letters
+    let randomLetters = ''
+    for (let i = 0; i < 4; i++) {
+      randomLetters += letters.charAt(Math.floor(Math.random() * letters.length))
+    }
+    
+    // Generate 4 random numbers
+    let randomNumbers = ''
+    for (let i = 0; i < 4; i++) {
+      randomNumbers += numbers.charAt(Math.floor(Math.random() * letters.length))
+    }
+    
+    return `TURNIO10-${randomLetters}${randomNumbers}`
+  }
+
+  const sendResendEmail = async (promoCode: string) => {
     try {
       const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
       if (!supabaseUrl) {
         console.warn('Supabase URL not found')
         return
       }
-
       const response = await fetch(`${supabaseUrl}/functions/v1/send-confirmation-email`, {
         method: 'POST',
         headers: {
@@ -94,6 +114,7 @@ export function SignupPage() {
           email: formData.email,
           name: formData.name,
           profession: formData.profession,
+          promoCode: promoCode,
         }),
       })
 
