@@ -41,7 +41,7 @@ Deno.serve(async (req) => {
     }
 
     // Get Resend API key from environment
-    const RESEND_API_KEY = Deno.env.get('RESEND_API_KEY')
+    const RESEND_API_KEY = Deno.env.get('VITE_RESEND_API_KEY')
     
     if (!RESEND_API_KEY) {
       console.error('RESEND_API_KEY not found in environment')

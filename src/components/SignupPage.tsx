@@ -78,57 +78,32 @@ export function SignupPage() {
 
   const sendResendEmail = async () => {
     try {
-      const resendApiKey = import.meta.env.VITE_RESEND_API_KEY
-      if (!resendApiKey) {
-        console.warn('Resend API key not found')
+      const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
+      if (!supabaseUrl) {
+        console.warn('Supabase URL not found')
         return
       }
 
-      const response = await fetch('https://api.resend.com/emails', {
+      const response = await fetch(`${supabaseUrl}/functions/v1/send-confirmation-email`, {
         method: 'POST',
         headers: {
-          'Authorization': `Bearer ${resendApiKey}`,
           'Content-Type': 'application/json',
+          'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
         },
         body: JSON.stringify({
-          from: 'Turnio <noreply@rebaseit.tech>',
-          to: [formData.email],
-          subject: '¡Bienvenido a Turnio! - Acceso Anticipado',
-          html: `
-            <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-              <h2 style="color: #2563eb;">¡Gracias por registrarte en Turnio!</h2>
-              
-              <p>Hola ${formData.name},</p>
-              
-              <p>Nos complace confirmar que has sido registrado exitosamente para el acceso anticipado de Turnio.</p>
-              
-              <p>Te notificaremos tan pronto como la plataforma esté disponible para que puedas ser uno de los primeros en experimentar cómo Turnio puede transformar la gestión de tu negocio.</p>
-              
-              <h3 style="color: #374151;">¿Qué puedes esperar?</h3>
-              <ul>
-                <li>Notificación prioritaria cuando esté disponible</li>
-                <li>Acceso exclusivo a funciones beta</li>
-                <li>Soporte prioritario durante el lanzamiento</li>
-              </ul>
-              
-              <p style="margin-top: 30px;">Saludos,<br>El equipo de Turnio</p>
-              
-              <hr style="margin: 30px 0; border: none; border-top: 1px solid #e5e7eb;">
-              <p style="font-size: 12px; color: #6b7280;">
-                Este email fue enviado a ${formData.email}. Si no solicitaste este registro, puedes ignorar este mensaje.
-              </p>
-            </div>
-          `,
+          email: formData.email,
+          name: formData.name,
+          profession: formData.profession,
         }),
       })
 
       if (response.ok) {
-        console.log('Resend email sent successfully')
+        console.log('Confirmation email sent successfully via Supabase Edge Function')
       } else {
-        console.error('Failed to send Resend email:', await response.text())
+        console.error('Failed to send confirmation email:', await response.text())
       }
     } catch (error) {
-      console.error('Error sending Resend email:', error)
+      console.error('Error sending confirmation email:', error)
     }
   }
 

@@ -545,19 +545,6 @@ function App() {
               </ul>
             </div>
 
-            {/* Column 3: Contactanos */}
-            <div className="space-y-4">
-              <h3 className="text-white font-semibold">Contactanos</h3>
-              <p className="text-gray-400 text-sm">
-                sales@rebaseit.tech
-              </p>
-              <a 
-                href="/signup" 
-                className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors inline-block"
-              >
-                Comenzar
-              </a>
-            </div>
           </div>
 
           {/* Bottom Section */}
