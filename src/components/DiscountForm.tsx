@@ -8,9 +8,11 @@ interface DiscountFormProps {
   onDiscountRequest: (promoCode: string) => Promise<void>
   onSubmitEmailWithoutDiscount: () => Promise<void>
   isLoading: boolean
+  name: string
+  profession: string
 }
 
-export function DiscountForm({ email, onDiscountRequest, onSubmitEmailWithoutDiscount, isLoading }: DiscountFormProps) {
+export function DiscountForm({ email, onDiscountRequest, onSubmitEmailWithoutDiscount, isLoading, name, profession }: DiscountFormProps) {
   const [wantsDiscount, setWantsDiscount] = useState<boolean | null>(null)
   const [submitted, setSubmitted] = useState(false)
   const [promoCode, setPromoCode] = useState('')
@@ -45,11 +47,11 @@ export function DiscountForm({ email, onDiscountRequest, onSubmitEmailWithoutDis
           const generatedCode = generatePromoCode()
           await onDiscountRequest(generatedCode)
           setPromoCode(generatedCode)
-          await submitEmailConfirmation(email, generatedCode)
+          await submitEmailConfirmation(email, generatedCode, name, profession)
           setSubmitted(true)
       } else {
           await onSubmitEmailWithoutDiscount()
-          await submitEmailConfirmation(email)
+          await submitEmailConfirmation(email, undefined, name, profession)
           setSubmitted(true)
       }
 
