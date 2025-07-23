@@ -342,7 +342,7 @@ function App() {
                             });
                           }}
                         >
-                          Sólo por $29.000
+                          Sólo por $29.999
                         </button>
                       </div>
                   </div>
@@ -397,7 +397,7 @@ function App() {
                             });
                           }}
                         >
-                          Desde $74.000
+                          Sólo por $74.999
                         </button>
                       </div>
                   </div>
