@@ -243,9 +243,9 @@ export function SignupPage() {
           value={formData.preferredPlan}
           onChange={handleInputChange}
           className={`
-            w-full appearance-none px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base border border-gray-300 rounded-lg
-            focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors
-            pr-10
+            appearance-none bg-white
+            w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base border border-gray-300 rounded-lg
+            focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors pr-10
             ${formData.preferredPlan === '' ? 'text-gray-400' : 'text-gray-900'}
           `}
         >
