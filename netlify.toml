@@ -1,0 +1,12 @@
+[build]
+  publish = "dist"
+  command = "npm run build"
+
+[build.environment]
+  VITE_WEB3FORMS_ACCESS_KEY = "a2c6ba05-45d2-4c27-a8db-0f3113ede287"
+  VITE_UMAMI_WEBSITE_ID = "d3ba3744-8937-4661-9cb3-cd26af28b93e"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
