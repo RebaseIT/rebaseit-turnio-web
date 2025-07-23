@@ -41,7 +41,7 @@ export function EmailForm({ onEmailSubmit, isLoading }: EmailFormProps) {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="tu@email.com"
+            placeholder="Tu correo electrónico"
             className="w-full pl-12 pr-4 py-4 text-lg border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-white/80 backdrop-blur-sm"
             disabled={isLoading}
           />

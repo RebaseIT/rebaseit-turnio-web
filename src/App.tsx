@@ -152,7 +152,7 @@ function App() {
                       Creá una cuenta en Turnio
                     </h3>
                     <p className="text-gray-600 text-center">
-                      Nos compartís tu email y el nombre de tu local
+                      Nos compartís tu email y el nombre de tu local.
                     </p>
                   </div>
 
@@ -164,7 +164,7 @@ function App() {
                       Configurá tu disponibilidad
                     </h3>
                     <p className="text-gray-600 text-center">
-                      Nos comentás en qué días y horarios trabajás durante la semana
+                      Nos comentás en qué días y horarios trabajás durante la semana.
                     </p>
                   </div>
 
@@ -176,7 +176,7 @@ function App() {
                       Cargá tus servicios
                     </h3>
                     <p className="text-gray-600 text-center">
-                      Nos especificás el nombre y la duración del servicio junto con otros campos extra
+                      Nos especificás el nombre y la duración del servicio junto con otros campos extra.
                     </p>
                   </div>
 
@@ -473,7 +473,7 @@ function App() {
                 <img src="/Turnio_White.svg" alt="Turnio" className="h-6" />
               </div>
               <p className="text-gray-400 text-sm">
-                Gestiona tus turnos sin complicaciones
+                Gestioná tus turnos sin complicaciones
               </p>
               <div className="flex items-center gap-4">
                 <a href="mailto:sales@rebaseit.tech" className="text-gray-400 hover:text-white transition-colors">
