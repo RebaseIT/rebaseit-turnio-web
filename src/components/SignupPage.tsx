@@ -4,12 +4,13 @@ export function SignupPage() {
   const [formData, setFormData] = useState({
     email: '',
     name: '',
-    profession: ''
+    profession: '',
+    preferredPlan: ''
   })
   const [isLoading, setIsLoading] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target
     setFormData(prev => ({
       ...prev,
@@ -61,6 +62,7 @@ export function SignupPage() {
             Nombre: ${formData.name}
             Email: ${formData.email}
             Profesión: ${formData.profession}
+            Plan preferido: ${formData.preferredPlan}
             Código de descuento: ${promoCode}
 
             Fecha de registro: ${new Date().toLocaleString('es-ES')}
@@ -114,6 +116,7 @@ export function SignupPage() {
           email: formData.email,
           name: formData.name,
           profession: formData.profession,
+          preferredPlan: formData.preferredPlan,
           promoCode: promoCode,
         }),
       })
@@ -148,7 +151,7 @@ export function SignupPage() {
             
             <a 
               href="/" 
-              className="inline-flex items-center gap-2 bg-blue-600 text-white px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg text-sm sm:text-base hover:bg-blue-700 transition-colors"
+              className="inline-flex items-center gap-2 bg-blue-800 text-white px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg text-sm sm:text-base hover:bg-blue-700 transition-colors"
             >
               Volver al inicio
             </a>
@@ -164,7 +167,7 @@ export function SignupPage() {
     <div className="text-center space-y-6 sm:space-y-8 mb-8 sm:mb-12">
       
       <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
-        Únete a Turnio
+        Unite a Turnio
         <br />
         <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
           antes que nadie
@@ -172,7 +175,7 @@ export function SignupPage() {
       </h1>
       
       <p className="text-lg sm:text-xl text-gray-600 max-w-xl mx-auto leading-relaxed px-4">
-        Sé de los primeros en descubrir cómo Turnio puede transformar la manera en que gestionas tu negocio.
+      Anotate para recibir acceso anticipado y un descuento por los primeros tres meses!
       </p>
     </div>
 
@@ -226,10 +229,56 @@ export function SignupPage() {
           />
         </div>
 
+        <div className="relative">
+        <label
+          htmlFor="preferredPlan"
+          className="block text-sm font-medium text-gray-700 mb-2 text-left"
+        >
+          Plan deseado
+        </label>
+
+        <select
+          id="preferredPlan"
+          name="preferredPlan"
+          value={formData.preferredPlan}
+          onChange={handleInputChange}
+          className={`
+            w-full appearance-none px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base border border-gray-300 rounded-lg
+            focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors
+            pr-10
+            ${formData.preferredPlan === '' ? 'text-gray-400' : 'text-gray-900'}
+          `}
+        >
+          <option value="Seleccioná un plan">
+            Seleccioná un plan
+          </option>
+          <option value="Básico">Básico</option>
+          <option value="Premium">Premium</option>
+          <option value="Enterprise">Enterprise</option>
+        </select>
+
+        {/* Chevron icon */}
+        <div className="pointer-events-none absolute right-3 top-1/2 flex items-center">
+          <svg
+            className="h-6 w-6 text-gray-500"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              fillRule="evenodd"
+              d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.25 8.27a.75.75 0 01-.02-1.06z"
+              clipRule="evenodd"
+            />
+          </svg>
+        </div>
+      </div>
+
         <button
           type="submit"
           disabled={isLoading}
-          className="w-full bg-blue-600 text-white py-2.5 sm:py-3 px-4 sm:px-6 rounded-lg font-semibold text-sm sm:text-base hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+          className="w-full bg-blue-800 text-white py-2.5 sm:py-3 px-4 sm:px-6 rounded-lg font-semibold text-sm sm:text-base hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
         >
           {isLoading ? 'Enviando...' : 'Registrarme'}
         </button>

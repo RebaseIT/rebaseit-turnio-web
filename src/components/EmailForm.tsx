@@ -56,7 +56,7 @@ export function EmailForm({ onEmailSubmit, isLoading }: EmailFormProps) {
         <button
           type="submit"
           disabled={isLoading}
-          className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-6 rounded-xl transition-all duration-200 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed group"
+          className="w-full bg-blue-800 hover:bg-blue-700 text-white font-semibold py-4 px-6 rounded-xl transition-all duration-200 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed group"
         >
           {isLoading ? (
             <Loader2 className="h-5 w-5 animate-spin" />

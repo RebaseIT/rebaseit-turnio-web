@@ -102,7 +102,7 @@ export function DiscountForm({ email, onDiscountRequest, onSubmitEmailWithoutDis
                   </div>
                   <button
                     onClick={copyToClipboard}
-                    className="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition-all duration-200 mx-auto"
+                    className="flex items-center justify-center gap-2 bg-blue-800 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition-all duration-200 mx-auto"
                   >
                     {copied ? (
                       <>
@@ -154,7 +154,7 @@ export function DiscountForm({ email, onDiscountRequest, onSubmitEmailWithoutDis
           <button
             onClick={() => handleDiscountResponse(true)}
             disabled={isLoading}
-            className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+            className="flex-1 bg-blue-800 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
           >
             {isLoading ? (
               <Loader2 className="h-4 w-4 animate-spin" />
