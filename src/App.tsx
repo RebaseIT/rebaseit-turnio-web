@@ -331,7 +331,7 @@ function App() {
                         <span className="text-gray-700 text-left">Soporte por email</span>
                       </div>
                     </div>
-                                          <div className="text-center mt-auto">
+                      <div className="text-center mt-auto">
                         <button 
                           className="w-full bg-blue-800 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors cursor-pointer"
                           onClick={(e) => {
@@ -342,7 +342,7 @@ function App() {
                             });
                           }}
                         >
-                          Sólo por $29.999
+                          Sólo por $14.999
                         </button>
                       </div>
                   </div>
@@ -371,16 +371,16 @@ function App() {
                         <div className="w-5 h-5 bg-green-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                           <span className="text-white text-xs">✓</span>
                         </div>
-                        <span className="text-gray-700 text-left">Hasta 3 calendarios</span>
+                        <span className="text-gray-700 text-left">Historial por cliente</span>
                       </div>
                       <div className="grid grid-cols-[auto_1fr] gap-3 items-start">
                         <div className="w-5 h-5 bg-green-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                           <span className="text-white text-xs">✓</span>
                         </div>
-                        <span className="text-gray-700 text-left">Creación de reglas de negocio básicas</span>
+                        <span className="text-gray-700 text-left">Hasta 3 calendarios</span>
                       </div>
                     </div>
-                                          <div className="text-center mt-auto">
+                      <div className="text-center mt-auto">
                         <button 
                           className="w-full bg-green-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-green-700 transition-colors cursor-pointer"
                           onClick={(e) => {
@@ -391,7 +391,7 @@ function App() {
                             });
                           }}
                         >
-                          Sólo por $49.999
+                          Sólo por $29.999
                         </button>
                       </div>
                   </div>
@@ -414,13 +414,13 @@ function App() {
                         <div className="w-5 h-5 bg-purple-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                           <span className="text-white text-xs">✓</span>
                         </div>
-                        <span className="text-gray-700 text-left">Gestión avanzada de disponibilidad</span>
+                        <span className="text-gray-700 text-left">Gestión avanzada de turnos</span>
                       </div>
                       <div className="grid grid-cols-[auto_1fr] gap-3 items-start">
                         <div className="w-5 h-5 bg-purple-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                           <span className="text-white text-xs">✓</span>
                         </div>
-                        <span className="text-gray-700 text-left">Gestión avanzada de turnos</span>
+                        <span className="text-gray-700 text-left">Estadísticas completas</span>
                       </div>
                       <div className="grid grid-cols-[auto_1fr] gap-3 items-start">
                         <div className="w-5 h-5 bg-purple-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -435,7 +435,7 @@ function App() {
                         <span className="text-gray-700 text-left">Soporte en línea de 8:00 a 20:00</span>
                       </div>
                     </div>
-                                          <div className="text-center mt-auto">
+                      <div className="text-center mt-auto">
                         <button 
                           className="w-full bg-purple-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-purple-700 transition-colors cursor-pointer"
                           onClick={(e) => {
