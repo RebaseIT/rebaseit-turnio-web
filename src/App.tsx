@@ -297,8 +297,8 @@ function App() {
                   </p>
                 </div>
                 
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                  <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 relative flex flex-col">
+                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-7xl mx-auto">
+                  <div className="bg-white rounded-xl p-6 shadow-sm border border-blue-100 relative flex flex-col">
                     <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
                       <Users className="h-8 w-8 text-blue-600" />
                     </div>
@@ -347,7 +347,56 @@ function App() {
                       </div>
                   </div>
 
-                  <div className="bg-white rounded-xl p-8 shadow-sm border border-purple-200 relative flex flex-col">
+                  <div className="bg-white rounded-xl p-6 shadow-sm border border-green-200 relative flex flex-col">
+                    <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                      <Users className="h-8 w-8 text-green-600" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
+                      Núcleo
+                    </h3>
+                    <ul className="space-y-4 mb-8 flex-grow">
+                      <li className="flex items-center gap-3">
+                        <div className="w-5 h-5 bg-green-600 rounded-full flex items-center justify-center">
+                          <span className="text-white text-xs">✓</span>
+                        </div>
+                        <span className="text-gray-700 text-left">Todo lo de Básico</span>
+                      </li>
+                      <li className="flex items-center gap-3">
+                        <div className="w-5 h-5 bg-green-600 rounded-full flex items-center justify-center">
+                          <span className="text-white text-xs">✓</span>
+                        </div>
+                        <span className="text-gray-700 text-left">Cancelación masiva de turnos</span>
+                      </li>
+                      <li className="flex items-center gap-3">
+                        <div className="w-5 h-5 bg-green-600 rounded-full flex items-center justify-center">
+                          <span className="text-white text-xs">✓</span>
+                        </div>
+                        <span className="text-gray-700 text-left">Hasta 3 calendarios</span>
+                      </li>
+                      <li className="flex items-center gap-3">
+                        <div className="w-5 h-5 bg-green-600 rounded-full flex items-center justify-center">
+                          <span className="text-white text-xs">✓</span>
+                        </div>
+                        <span className="text-gray-700 text-left">Personalización básica</span>
+                      </li>
+                    </ul>
+                                          <div className="text-center mt-auto">
+                        <button 
+                          className="w-full bg-green-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-green-700 transition-colors cursor-pointer"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            document.getElementById('signup')?.scrollIntoView({ 
+                              behavior: 'smooth',
+                              block: 'start'
+                            });
+                          }}
+                        >
+                          Sólo por $49.999
+                        </button>
+                      </div>
+                  </div>
+
+                  <div className="bg-white rounded-xl p-6 shadow-sm border border-purple-200 relative flex flex-col">
                     <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6">
                       <Users className="h-8 w-8 text-purple-600" />
                     </div>
@@ -359,7 +408,7 @@ function App() {
                         <div className="w-5 h-5 bg-purple-600 rounded-full flex items-center justify-center">
                           <span className="text-white text-xs">✓</span>
                         </div>
-                        <span className="text-gray-700 text-left">Todo lo de Básico</span>
+                        <span className="text-gray-700 text-left">Todo lo de Núcleo</span>
                       </li>
                       <li className="flex items-center gap-3">
                         <div className="w-5 h-5 bg-purple-600 rounded-full flex items-center justify-center">
@@ -402,14 +451,14 @@ function App() {
                       </div>
                   </div>
 
-                  <div className="bg-white rounded-xl p-8 shadow-sm border border-orange-200 relative flex flex-col">
+                  <div className="bg-white rounded-xl p-6 shadow-sm border border-orange-200 relative flex flex-col">
                     <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-6">
                       <svg className="h-8 w-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                       </svg>
                     </div>
                     <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
-                      Enterprise
+                      Empresas
                     </h3>
                     <ul className="space-y-4 mb-8 flex-grow">
                       <li className="flex items-center gap-3">
