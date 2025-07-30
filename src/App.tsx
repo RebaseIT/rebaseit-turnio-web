@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { Calendar, Users, Sparkles, Clock } from 'lucide-react'
+import { Calendar, Users, User, Star, Sparkles, Clock } from 'lucide-react'
 import { SignupPage } from './components/SignupPage';
 import { useIsMobile } from './hooks/useIsMobile';
 
@@ -300,7 +300,7 @@ function App() {
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-7xl mx-auto">
                   <div className="bg-white rounded-xl p-6 shadow-sm border border-blue-100 relative flex flex-col">
                     <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                      <Users className="h-8 w-8 text-blue-600" />
+                      <User className="h-8 w-8 text-blue-600" />
                     </div>
                     <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
                       Básico
@@ -377,7 +377,7 @@ function App() {
                         <div className="w-5 h-5 bg-green-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                           <span className="text-white text-xs">✓</span>
                         </div>
-                        <span className="text-gray-700 text-left">Personalización básica</span>
+                        <span className="text-gray-700 text-left">Creación de reglas de negocio básicas</span>
                       </div>
                     </div>
                                           <div className="text-center mt-auto">
@@ -398,7 +398,7 @@ function App() {
 
                   <div className="bg-white rounded-xl p-6 shadow-sm border border-purple-200 relative flex flex-col">
                     <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                      <Users className="h-8 w-8 text-purple-600" />
+                      <Star className="h-8 w-8 text-purple-600 outline-purple-600" />
                     </div>
                     <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
                       Premium
@@ -451,7 +451,7 @@ function App() {
                       </div>
                   </div>
 
-                  <div className="bg-white rounded-xl p-6 shadow-sm border border-orange-200 relative flex flex-col">
+                  <div className="bg-orange-50 rounded-xl p-6 shadow-sm border border-orange-200 relative flex flex-col">
                     <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-6">
                       <svg className="h-8 w-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
