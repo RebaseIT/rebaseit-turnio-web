@@ -305,32 +305,32 @@ function App() {
                     <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
                       Básico
                     </h3>
-                    <ul className="space-y-4 mb-8 flex-grow">
-                      <li className="flex items-center gap-3">
-                        <div className="w-5 h-5 bg-blue-800 rounded-full flex items-center justify-center">
+                    <div className="space-y-4 mb-8 flex-grow">
+                      <div className="grid grid-cols-[auto_1fr] gap-3 items-start">
+                        <div className="w-5 h-5 bg-blue-800 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                           <span className="text-white text-xs">✓</span>
                         </div>
                         <span className="text-gray-700 text-left">Turnos ilimitados</span>
-                      </li>
-                      <li className="flex items-center gap-3">
-                        <div className="w-5 h-5 bg-blue-800 rounded-full flex items-center justify-center">
+                      </div>
+                      <div className="grid grid-cols-[auto_1fr] gap-3 items-start">
+                        <div className="w-5 h-5 bg-blue-800 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                           <span className="text-white text-xs">✓</span>
                         </div>
                         <span className="text-gray-700 text-left">Notificaciones por email</span>
-                      </li>
-                      <li className="flex items-center gap-3">
-                        <div className="w-5 h-5 bg-blue-800 rounded-full flex items-center justify-center">
+                      </div>
+                      <div className="grid grid-cols-[auto_1fr] gap-3 items-start">
+                        <div className="w-5 h-5 bg-blue-800 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                           <span className="text-white text-xs">✓</span>
                         </div>
                         <span className="text-gray-700 text-left">Un calendario básico</span>
-                      </li>
-                      <li className="flex items-center gap-3">
-                        <div className="w-5 h-5 bg-blue-800 rounded-full flex items-center justify-center">
+                      </div>
+                      <div className="grid grid-cols-[auto_1fr] gap-3 items-start">
+                        <div className="w-5 h-5 bg-blue-800 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                           <span className="text-white text-xs">✓</span>
                         </div>
                         <span className="text-gray-700 text-left">Soporte por email</span>
-                      </li>
-                    </ul>
+                      </div>
+                    </div>
                                           <div className="text-center mt-auto">
                         <button 
                           className="w-full bg-blue-800 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors cursor-pointer"
@@ -354,32 +354,32 @@ function App() {
                     <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
                       Núcleo
                     </h3>
-                    <ul className="space-y-4 mb-8 flex-grow">
-                      <li className="flex items-center gap-3">
-                        <div className="w-5 h-5 bg-green-600 rounded-full flex items-center justify-center">
+                    <div className="space-y-4 mb-8 flex-grow">
+                      <div className="grid grid-cols-[auto_1fr] gap-3 items-start">
+                        <div className="w-5 h-5 bg-green-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                           <span className="text-white text-xs">✓</span>
                         </div>
                         <span className="text-gray-700 text-left">Todo lo de Básico</span>
-                      </li>
-                      <li className="flex items-center gap-3">
-                        <div className="w-5 h-5 bg-green-600 rounded-full flex items-center justify-center">
+                      </div>
+                      <div className="grid grid-cols-[auto_1fr] gap-3 items-start">
+                        <div className="w-5 h-5 bg-green-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                           <span className="text-white text-xs">✓</span>
                         </div>
                         <span className="text-gray-700 text-left">Cancelación masiva de turnos</span>
-                      </li>
-                      <li className="flex items-center gap-3">
-                        <div className="w-5 h-5 bg-green-600 rounded-full flex items-center justify-center">
+                      </div>
+                      <div className="grid grid-cols-[auto_1fr] gap-3 items-start">
+                        <div className="w-5 h-5 bg-green-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                           <span className="text-white text-xs">✓</span>
                         </div>
                         <span className="text-gray-700 text-left">Hasta 3 calendarios</span>
-                      </li>
-                      <li className="flex items-center gap-3">
-                        <div className="w-5 h-5 bg-green-600 rounded-full flex items-center justify-center">
+                      </div>
+                      <div className="grid grid-cols-[auto_1fr] gap-3 items-start">
+                        <div className="w-5 h-5 bg-green-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                           <span className="text-white text-xs">✓</span>
                         </div>
                         <span className="text-gray-700 text-left">Personalización básica</span>
-                      </li>
-                    </ul>
+                      </div>
+                    </div>
                                           <div className="text-center mt-auto">
                         <button 
                           className="w-full bg-green-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-green-700 transition-colors cursor-pointer"
@@ -403,38 +403,38 @@ function App() {
                     <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
                       Premium
                     </h3>
-                    <ul className="space-y-4 mb-8 flex-grow">
-                      <li className="flex items-center gap-3">
-                        <div className="w-5 h-5 bg-purple-600 rounded-full flex items-center justify-center">
+                    <div className="space-y-4 mb-8 flex-grow">
+                      <div className="grid grid-cols-[auto_1fr] gap-3 items-start">
+                        <div className="w-5 h-5 bg-purple-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                           <span className="text-white text-xs">✓</span>
                         </div>
                         <span className="text-gray-700 text-left">Todo lo de Núcleo</span>
-                      </li>
-                      <li className="flex items-center gap-3">
-                        <div className="w-5 h-5 bg-purple-600 rounded-full flex items-center justify-center">
+                      </div>
+                      <div className="grid grid-cols-[auto_1fr] gap-3 items-start">
+                        <div className="w-5 h-5 bg-purple-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                           <span className="text-white text-xs">✓</span>
                         </div>
                         <span className="text-gray-700 text-left">Gestión avanzada de disponibilidad</span>
-                      </li>
-                      <li className="flex items-center gap-3">
-                        <div className="w-5 h-5 bg-purple-600 rounded-full flex items-center justify-center">
+                      </div>
+                      <div className="grid grid-cols-[auto_1fr] gap-3 items-start">
+                        <div className="w-5 h-5 bg-purple-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                           <span className="text-white text-xs">✓</span>
                         </div>
                         <span className="text-gray-700 text-left">Gestión avanzada de turnos</span>
-                      </li>
-                      <li className="flex items-center gap-3">
-                        <div className="w-5 h-5 bg-purple-600 rounded-full flex items-center justify-center">
+                      </div>
+                      <div className="grid grid-cols-[auto_1fr] gap-3 items-start">
+                        <div className="w-5 h-5 bg-purple-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                           <span className="text-white text-xs">✓</span>
                         </div>
                         <span className="text-gray-700 text-left">Hasta 10 calendarios</span>
-                      </li>
-                      <li className="flex items-center gap-3">
-                        <div className="w-5 h-5 bg-purple-600 rounded-full flex items-center justify-center">
+                      </div>
+                      <div className="grid grid-cols-[auto_1fr] gap-3 items-start">
+                        <div className="w-5 h-5 bg-purple-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                           <span className="text-white text-xs">✓</span>
                         </div>
                         <span className="text-gray-700 text-left">Soporte en línea de 8:00 a 20:00</span>
-                      </li>
-                    </ul>
+                      </div>
+                    </div>
                                           <div className="text-center mt-auto">
                         <button 
                           className="w-full bg-purple-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-purple-700 transition-colors cursor-pointer"
@@ -460,32 +460,32 @@ function App() {
                     <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
                       Empresas
                     </h3>
-                    <ul className="space-y-4 mb-8 flex-grow">
-                      <li className="flex items-center gap-3">
-                        <div className="w-5 h-5 bg-orange-600 rounded-full flex items-center justify-center">
+                    <div className="space-y-4 mb-8 flex-grow">
+                      <div className="grid grid-cols-[auto_1fr] gap-3 items-start">
+                        <div className="w-5 h-5 bg-orange-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                           <span className="text-white text-xs">✓</span>
                         </div>
                         <span className="text-gray-700 text-left">Todo lo de Premium</span>
-                      </li>
-                      <li className="flex items-center gap-3">
-                        <div className="w-5 h-5 bg-orange-600 rounded-full flex items-center justify-center">
+                      </div>
+                      <div className="grid grid-cols-[auto_1fr] gap-3 items-start">
+                        <div className="w-5 h-5 bg-orange-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                           <span className="text-white text-xs">✓</span>
                         </div>
                         <span className="text-gray-700 text-left">API personalizada</span>
-                      </li>
-                      <li className="flex items-center gap-3">
-                        <div className="w-5 h-5 bg-orange-600 rounded-full flex items-center justify-center">
+                      </div>
+                      <div className="grid grid-cols-[auto_1fr] gap-3 items-start">
+                        <div className="w-5 h-5 bg-orange-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                           <span className="text-white text-xs">✓</span>
                         </div>
                         <span className="text-gray-700 text-left">Soporte 24/7 dedicado</span>
-                      </li>
-                      <li className="flex items-center gap-3">
-                        <div className="w-5 h-5 bg-orange-600 rounded-full flex items-center justify-center">
+                      </div>
+                      <div className="grid grid-cols-[auto_1fr] gap-3 items-start">
+                        <div className="w-5 h-5 bg-orange-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                           <span className="text-white text-xs">✓</span>
                         </div>
                         <span className="text-gray-700 text-left">Integración con sistemas</span>
-                      </li>
-                    </ul>
+                      </div>
+                    </div>
                       <div className="text-center mt-auto">
                         <button 
                           className="w-full bg-orange-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-orange-700 transition-colors cursor-pointer"
