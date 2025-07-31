@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { Calendar, Users, User, Star, Sparkles, Clock } from 'lucide-react'
 import { SignupPage } from './components/SignupPage';
+import { Tooltip } from './components/Tooltip';
 import { useIsMobile } from './hooks/useIsMobile';
 
 function App() {
@@ -310,25 +311,33 @@ function App() {
                         <div className="w-5 h-5 bg-blue-800 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                           <span className="text-white text-xs">✓</span>
                         </div>
-                        <span className="text-gray-700 text-left">Turnos ilimitados</span>
+                        <Tooltip content="Creá y gestioná tantos turnos como necesites sin restricciones">
+                          <span className="text-gray-700 text-left cursor-help">Turnos ilimitados</span>
+                        </Tooltip>
                       </div>
                       <div className="grid grid-cols-[auto_1fr] gap-3 items-start">
                         <div className="w-5 h-5 bg-blue-800 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                           <span className="text-white text-xs">✓</span>
                         </div>
-                        <span className="text-gray-700 text-left">Notificaciones por email</span>
+                        <Tooltip content="Recibí alertas automáticas cuando se reserven, cancelen o modifiquen turnos">
+                          <span className="text-gray-700 text-left cursor-help">Notificaciones por email</span>
+                        </Tooltip>
                       </div>
                       <div className="grid grid-cols-[auto_1fr] gap-3 items-start">
                         <div className="w-5 h-5 bg-blue-800 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                           <span className="text-white text-xs">✓</span>
                         </div>
-                        <span className="text-gray-700 text-left">Un calendario básico</span>
+                        <Tooltip content="Vista de calendario simple para organizar tus turnos diarios">
+                          <span className="text-gray-700 text-left cursor-help">Un calendario básico</span>
+                        </Tooltip>
                       </div>
                       <div className="grid grid-cols-[auto_1fr] gap-3 items-start">
                         <div className="w-5 h-5 bg-blue-800 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                           <span className="text-white text-xs">✓</span>
                         </div>
-                        <span className="text-gray-700 text-left">Soporte por email</span>
+                        <Tooltip content="Asistencia técnica a través de correo electrónico durante horarios laborales">
+                          <span className="text-gray-700 text-left cursor-help">Soporte por email</span>
+                        </Tooltip>
                       </div>
                     </div>
                       <div className="text-center mt-auto">
@@ -359,25 +368,33 @@ function App() {
                         <div className="w-5 h-5 bg-green-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                           <span className="text-white text-xs">✓</span>
                         </div>
-                        <span className="text-gray-700 text-left">Todo lo de Básico</span>
+                        <Tooltip content="Incluye todas las funcionalidades del plan Básico">
+                          <span className="text-gray-700 text-left cursor-help">Todo lo de Básico</span>
+                        </Tooltip>
                       </div>
                       <div className="grid grid-cols-[auto_1fr] gap-3 items-start">
                         <div className="w-5 h-5 bg-green-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                           <span className="text-white text-xs">✓</span>
                         </div>
-                        <span className="text-gray-700 text-left">Cancelación masiva de turnos</span>
+                        <Tooltip content="Cancelá múltiples turnos a la vez en casos de emergencia o días no laborables">
+                          <span className="text-gray-700 text-left cursor-help">Cancelación masiva de turnos</span>
+                        </Tooltip>
                       </div>
                       <div className="grid grid-cols-[auto_1fr] gap-3 items-start">
                         <div className="w-5 h-5 bg-green-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                           <span className="text-white text-xs">✓</span>
                         </div>
-                        <span className="text-gray-700 text-left">Historial por cliente</span>
+                        <Tooltip content="Accedé al registro completo de turnos anteriores de cada cliente">
+                          <span className="text-gray-700 text-left cursor-help">Historial por cliente</span>
+                        </Tooltip>
                       </div>
                       <div className="grid grid-cols-[auto_1fr] gap-3 items-start">
                         <div className="w-5 h-5 bg-green-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                           <span className="text-white text-xs">✓</span>
                         </div>
-                        <span className="text-gray-700 text-left">Hasta 3 calendarios</span>
+                        <Tooltip content="Gestioná hasta 3 calendarios diferentes para distintos servicios o profesionales">
+                          <span className="text-gray-700 text-left cursor-help">Hasta 3 calendarios</span>
+                        </Tooltip>
                       </div>
                     </div>
                       <div className="text-center mt-auto">
@@ -408,31 +425,41 @@ function App() {
                         <div className="w-5 h-5 bg-purple-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                           <span className="text-white text-xs">✓</span>
                         </div>
-                        <span className="text-gray-700 text-left">Todo lo de Núcleo</span>
+                        <Tooltip content="Incluye todas las funcionalidades del plan Núcleo">
+                          <span className="text-gray-700 text-left cursor-help">Todo lo de Núcleo</span>
+                        </Tooltip>
                       </div>
                       <div className="grid grid-cols-[auto_1fr] gap-3 items-start">
                         <div className="w-5 h-5 bg-purple-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                           <span className="text-white text-xs">✓</span>
                         </div>
-                        <span className="text-gray-700 text-left">Gestión avanzada de turnos</span>
+                        <Tooltip content="Herramientas adicionales como reprogramación automática y gestión de listas de espera">
+                          <span className="text-gray-700 text-left cursor-help">Gestión avanzada de turnos</span>
+                        </Tooltip>
                       </div>
                       <div className="grid grid-cols-[auto_1fr] gap-3 items-start">
                         <div className="w-5 h-5 bg-purple-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                           <span className="text-white text-xs">✓</span>
                         </div>
-                        <span className="text-gray-700 text-left">Estadísticas completas</span>
+                        <Tooltip content="Reportes detallados de ocupación, clientes frecuentes y análisis de tendencias">
+                          <span className="text-gray-700 text-left cursor-help">Estadísticas completas</span>
+                        </Tooltip>
                       </div>
                       <div className="grid grid-cols-[auto_1fr] gap-3 items-start">
                         <div className="w-5 h-5 bg-purple-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                           <span className="text-white text-xs">✓</span>
                         </div>
-                        <span className="text-gray-700 text-left">Hasta 10 calendarios</span>
+                        <Tooltip content="Gestioná hasta 10 calendarios para equipos más grandes o múltiples servicios">
+                          <span className="text-gray-700 text-left cursor-help">Hasta 10 calendarios</span>
+                        </Tooltip>
                       </div>
                       <div className="grid grid-cols-[auto_1fr] gap-3 items-start">
                         <div className="w-5 h-5 bg-purple-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                           <span className="text-white text-xs">✓</span>
                         </div>
-                        <span className="text-gray-700 text-left">Soporte en línea de 8:00 a 20:00</span>
+                        <Tooltip content="Chat en vivo y soporte telefónico durante horarios extendidos">
+                          <span className="text-gray-700 text-left cursor-help">Soporte en línea de 8:00 a 20:00</span>
+                        </Tooltip>
                       </div>
                     </div>
                       <div className="text-center mt-auto">
@@ -465,25 +492,33 @@ function App() {
                         <div className="w-5 h-5 bg-orange-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                           <span className="text-white text-xs">✓</span>
                         </div>
-                        <span className="text-gray-700 text-left">Todo lo de Premium</span>
+                        <Tooltip content="Incluye todas las funcionalidades del plan Premium">
+                          <span className="text-gray-700 text-left cursor-help">Todo lo de Premium</span>
+                        </Tooltip>
                       </div>
                       <div className="grid grid-cols-[auto_1fr] gap-3 items-start">
                         <div className="w-5 h-5 bg-orange-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                           <span className="text-white text-xs">✓</span>
                         </div>
-                        <span className="text-gray-700 text-left">API personalizada</span>
+                        <Tooltip content="Integrá Turnio con tus sistemas existentes mediante nuestra API">
+                          <span className="text-gray-700 text-left cursor-help">API personalizada</span>
+                        </Tooltip>
                       </div>
                       <div className="grid grid-cols-[auto_1fr] gap-3 items-start">
                         <div className="w-5 h-5 bg-orange-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                           <span className="text-white text-xs">✓</span>
                         </div>
-                        <span className="text-gray-700 text-left">Soporte 24/7 dedicado</span>
+                        <Tooltip content="Asistencia prioritaria las 24 horas con gestor de cuenta asignado">
+                          <span className="text-gray-700 text-left cursor-help">Soporte 24/7 dedicado</span>
+                        </Tooltip>
                       </div>
                       <div className="grid grid-cols-[auto_1fr] gap-3 items-start">
                         <div className="w-5 h-5 bg-orange-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                           <span className="text-white text-xs">✓</span>
                         </div>
-                        <span className="text-gray-700 text-left">Integración con sistemas</span>
+                        <Tooltip content="Conectá con sistemas de facturación, CRM y otras herramientas empresariales">
+                          <span className="text-gray-700 text-left cursor-help">Integración con sistemas</span>
+                        </Tooltip>
                       </div>
                     </div>
                       <div className="text-center mt-auto">
