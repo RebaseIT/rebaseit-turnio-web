@@ -15,7 +15,20 @@ export const Tooltip: React.FC<TooltipProps> = ({ children, content, className =
       onMouseEnter={() => setIsVisible(true)}
       onMouseLeave={() => setIsVisible(false)}
     >
-      {children}
+      <span 
+        className="relative opacity-100 hover:opacity-80 transition-opacity inline"
+        style={{
+          backgroundImage: 'repeating-linear-gradient(to right, #9ca3af 0px, #9ca3af 2px, transparent 2px, transparent 4px)',
+          backgroundSize: '4px 2px',
+          backgroundRepeat: 'repeat-x',
+          backgroundPosition: '0 100%',
+          paddingBottom: '3px',
+          boxDecorationBreak: 'clone',
+          WebkitBoxDecorationBreak: 'clone'
+        }}
+      >
+        {children}
+      </span>
       {isVisible && (
         <div className="absolute left-full top-1/2 transform -translate-y-1/2 ml-2 z-50">
           <div className="bg-gray-900 text-white text-sm rounded-lg py-2 px-3 shadow-lg w-64 text-center">
