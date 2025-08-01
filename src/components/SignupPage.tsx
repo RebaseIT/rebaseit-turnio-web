@@ -254,6 +254,7 @@ export function SignupPage() {
           </option>
           <option value="Básico">Básico</option>
           <option value="Premium">Premium</option>
+          <option value="Expert">Expert</option>
           <option value="Empresas">Empresas</option>
         </select>
 
