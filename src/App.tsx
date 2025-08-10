@@ -80,13 +80,10 @@ function App() {
             className="bg-blue-800 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors"
             onClick={(e) => {
               e.preventDefault();
-              document.getElementById('signup')?.scrollIntoView({ 
-                behavior: 'smooth',
-                block: 'start'
-              });
+              window.open('https://turnio.app.rebaseit.tech/', '_blank');
             }}
           >
-            Quiero acceso anticipado
+            Accedé a Turnio
           </a>}
         </div>
       </header>
@@ -123,16 +120,13 @@ function App() {
                   className="inline-flex items-center gap-2 bg-blue-800 text-white px-8 py-4 rounded-lg hover:bg-blue-700 transition-colors text-lg font-semibold"
                   onClick={(e) => {
                     e.preventDefault();
-                    document.getElementById('signup')?.scrollIntoView({ 
-                      behavior: 'smooth',
-                      block: 'start'
-                    });
+                    window.open('https://turnio.app.rebaseit.tech/register', '_blank');
                   }}
                 >
-                  Quiero acceso anticipado
+                  Registrate
                 </a>
                 <p className="text-gray-500 text-sm mt-4">
-                  Unite a la lista de espera y obtené un descuento!
+                  Accedé a la app de Turnio y comenzá a gestionar tus turnos
                 </p>
               </div>
 

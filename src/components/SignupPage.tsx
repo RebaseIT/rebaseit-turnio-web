@@ -175,7 +175,7 @@ export function SignupPage() {
       </h1>
       
       <p className="text-lg sm:text-xl text-gray-600 max-w-xl mx-auto leading-relaxed px-4">
-      Anotate para recibir acceso anticipado y un descuento por los primeros tres meses!
+      Anotate para recibir un descuento por los primeros tres meses!
       </p>
     </div>
 
@@ -281,7 +281,7 @@ export function SignupPage() {
           disabled={isLoading}
           className="w-full bg-blue-800 text-white py-2.5 sm:py-3 px-4 sm:px-6 rounded-lg font-semibold text-sm sm:text-base hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
         >
-          {isLoading ? 'Enviando...' : 'Registrarme'}
+          {isLoading ? 'Enviando...' : 'Obtener descuento'}
         </button>
       </form>
     </div>
