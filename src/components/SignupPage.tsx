@@ -144,11 +144,11 @@ export function SignupPage() {
             </div>
             
             <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">
-              ¡Gracias por registrarte!
+              ¡Gracias por enviar tu consulta!
             </h2>
             
             <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">
-              Te hemos enviado un email de confirmación. Te notificaremos cuando Turnio esté disponible.
+              Te responderemos lo antes posible.
             </p>
             
             <a 
