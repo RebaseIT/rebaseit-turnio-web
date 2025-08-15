@@ -5,12 +5,13 @@ export function SignupPage() {
     email: '',
     name: '',
     profession: '',
-    preferredPlan: ''
+    preferredPlan: '',
+    consulta: ''
   })
   const [isLoading, setIsLoading] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
     setFormData(prev => ({
       ...prev,
@@ -55,17 +56,17 @@ export function SignupPage() {
           access_key: web3formsKey,
           from_name: `${formData.name}`,
           from_email: formData.email,
-          subject: 'Nuevo registro en Turnio - Acceso Anticipado',
+          subject: 'Consulta sobre Turnio',
           message: `
-            Nuevo usuario registrado para acceso anticipado:
+            Nueva consulta sobre Turnio:
             
             Nombre: ${formData.name}
             Email: ${formData.email}
             Profesión: ${formData.profession}
             Plan preferido: ${formData.preferredPlan}
-            Código de descuento: ${promoCode}
+            Consulta: ${formData.consulta}
 
-            Fecha de registro: ${new Date().toLocaleString('es-ES')}
+            Fecha de consulta: ${new Date().toLocaleString('es-ES')}
           `,
         }),
       })
@@ -117,6 +118,7 @@ export function SignupPage() {
           name: formData.name,
           profession: formData.profession,
           preferredPlan: formData.preferredPlan,
+          consulta: formData.consulta,
           promoCode: promoCode,
         }),
       })
@@ -167,15 +169,15 @@ export function SignupPage() {
     <div className="text-center space-y-6 sm:space-y-8 mb-8 sm:mb-12">
       
       <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
-        Unite a Turnio
+        Unite a Turnio y
         <br />
         <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-          antes que nadie
+          gestioná tus turnos sin complicaciones
         </span>
       </h1>
       
       <p className="text-lg sm:text-xl text-gray-600 max-w-xl mx-auto leading-relaxed px-4">
-      Anotate para recibir un descuento por los primeros tres meses!
+        Si tenés alguna consulta, no dudes en contactarnos.
       </p>
     </div>
 
@@ -276,12 +278,28 @@ export function SignupPage() {
         </div>
       </div>
 
+        <div>
+          <label htmlFor="consulta" className="block text-sm font-medium text-gray-700 mb-2 text-left">
+            Consulta
+          </label>
+          <textarea
+            id="consulta"
+            name="consulta"
+            value={formData.consulta}
+            onChange={handleInputChange}
+            rows={4}
+            className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 
+            focus:border-transparent transition-colors resize-none"
+            placeholder="Contanos qué te gustaría saber sobre Turnio"
+          />
+        </div>
+
         <button
           type="submit"
           disabled={isLoading}
           className="w-full bg-blue-800 text-white py-2.5 sm:py-3 px-4 sm:px-6 rounded-lg font-semibold text-sm sm:text-base hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
         >
-          {isLoading ? 'Enviando...' : 'Obtener descuento'}
+          {isLoading ? 'Enviando...' : 'Enviar consulta'}
         </button>
       </form>
     </div>
